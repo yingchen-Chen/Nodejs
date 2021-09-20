@@ -1,0 +1,4 @@
+res.end()
+res.send()會跟去你裡面內容而判定送html或是json
+res.render()
+res.json()這四個都會傳一個回應給用戶端

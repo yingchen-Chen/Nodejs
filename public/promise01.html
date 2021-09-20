@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //promise是來處理非同步狀態ex:ajax，node中讀寫檔案，甚麼都沒寫則一直處在等待狀態，然後會先執行console.log('1')，等1秒鐘後時間到了才會丟出'abc'值出來，然後再去執行console.log('2')
+        new Promise((resolve, reject)=>{
+            setTimeout(() => {
+                resolve('abc');
+                // reject('my-error');
+            }, 1000);
+        }).then(r=>{
+            console.log('2:', r);
+            throw new Error('your error message'); //自訂丟出一個錯誤物件
+            
+        }).catch(err =>{
+            console.log('error:', err);
+        })
+        //resolve，reject都是function，如果事件成功處理完>呼叫resolve，如果事件發生錯誤>reject。r指resolve
+        console.log('1:',new Date());
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //先寫一個function
+     function myPromise(p) {
+         return new Promise((resolve, reject) => {
+            const rnd = 300 + Math.floor(Math.random()*1000);
+            setTimeout(() => {
+                resolve({p, rnd});
+                
+            }, rnd);
+        });
+     }
+     //第二種寫法,用箭頭函式，要先設定一個變數把他包起來不然會出錯
+     (async ()=>{
+        const str = 'say-hello---';
+        for(let i=0 i< str.length; i++){
+
+            console.log(await myPromise(str[i]));
+        }
+   
+     })();
+    //  ();這樣就可以直接呼叫了
+     
+        
+           
+      
+        //resolve，reject都是function，如果事件成功處理完>呼叫resolve，如果事件發生錯誤>reject。r指resolve
+        
+        
+    </script>
+</body>
+</html>

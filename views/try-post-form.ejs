@@ -1,0 +1,33 @@
+<%- include('parts/html-head') %>  <!-- 以這支home.ejs為相對位置 -->
+<%- include('parts/navbar') %>  
+
+<div class="container">
+    <!-- ejs檔案原則就是寫html -->
+    <div class="row">
+        <div class="col-m-6">
+            <form method="post">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="text" class="form-control" id="email" name="email">
+                  <% if(typeof email !=='undefined'){ %> 
+                    <div class="form-text"><%= email %></div>
+                  <% } %> 
+                  <!-- 如果有定義才送出，沒定義就不作為 -->
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                  <%# if(typeof email !=='undefined'){ %>
+                  <% if(locals.password){ %> 
+                    <div class="form-text"><%= password %></div>
+                  <% } %>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>    
+    </div>
+</div>
+<!-- 它其實就是傳送出去給同一頁 也就是它傳送出去後 他會用同樣的源碼來打開網頁， 你那個檢查的部分只是決定他會不會在下面顯示你之前傳送出去的數值而已 -->
+<%- include('parts/scripts') %>  
+<%- include('parts/html-foot') %> 
